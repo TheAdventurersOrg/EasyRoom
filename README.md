@@ -3,7 +3,7 @@
 ![Icone](./assets/Icon.svg)
 ![Icone](./assets/Icon_black.png)
 
-User-friendly mobile application that simplifies the process of renting and managing rooms in properties. Whether you're a property owner looking to list available rooms or a tenant searching for the perfect place to stay, EasyRoom offers a seamless platform to connect property owners and tenants.
+Easy Room is a mobile application designed to simplify the management of shared properties, making life easier for both landlords and tenants. Manage rentals, communicate effortlessly, and organize shared tasks and expenses all in one place.
 
 ### dev
 Branch "dev" is for development.
