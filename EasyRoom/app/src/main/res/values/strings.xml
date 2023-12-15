@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">EasyRoom</string>
+    <string name="welcome">Welcome to Easy Room!</string>
+    <string name="description_logo">Logo</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signIn">Sign In</string>
+    <string name="createAccount">Create Account</string>
+
+    <string name="home">Home</string>
+    <string name="description_ic_menu">Menu</string>
+    <string name="description_ic_profile">Profile</string>
+
+    <string name="register">Create Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="tv_radio_group">Please, select your profile:</string>
+    <string name="rb_owner">Owner</string>
+    <string name="rb_tenant">Tenant</string>
+    <string name="terms">Accept terms and services</string>
+    <string name="button_register">Register</string>
+</resources>
