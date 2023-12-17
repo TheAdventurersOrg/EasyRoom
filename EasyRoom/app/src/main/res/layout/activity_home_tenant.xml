@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000010"
-    tools:context=".HomeActivity">
+    tools:context=".HomeTenantActivity">
 
     <LinearLayout
         android:id="@+id/llHeader"
@@ -17,11 +17,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ivMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ivLogOut"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/description_ic_menu"
-            android:src="@drawable/ic_menu" />
+            android:src="@drawable/ic_logout" />
 
         <TextView
             android:id="@+id/tvHome"
@@ -30,14 +32,16 @@
             android:layout_weight="1"
             android:text="@string/home"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:gravity="center" />
 
         <ImageView
             android:id="@+id/ivProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/description_ic_profile"
             android:src="@drawable/ic_profile" />
     </LinearLayout>
