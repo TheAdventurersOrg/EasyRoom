@@ -1,4 +1,5 @@
 <resources>
+    <!-- Strings for the login screen -->
     <string name="app_name">EasyRoom</string>
     <string name="welcome">Welcome to Easy Room!</string>
     <string name="description_logo">Logo</string>
@@ -7,10 +8,12 @@
     <string name="signIn">Sign In</string>
     <string name="createAccount">Create Account</string>
 
+    <!-- Strings for the home screen -->
     <string name="home">Home</string>
     <string name="description_ic_menu">Menu</string>
     <string name="description_ic_profile">Profile</string>
 
+    <!-- Strings for the register screen -->
     <string name="register">Create Account</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
@@ -21,4 +24,9 @@
     <string name="rb_tenant">Tenant</string>
     <string name="terms">Accept terms and services</string>
     <string name="button_register">Register</string>
+
+    <!-- Strings for the profile screen -->
+    <string name="profile">Your profile information:</string>
+    <string name="user_type">User Type</string>
+
 </resources>
