@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth

@@ -1,5 +1,6 @@
 package pt.ipca.easyroom
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
@@ -32,10 +33,24 @@ class ProfileActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document != null) {
                         tvFirstName.text = document.getString("firstName")
+                        tvFirstName.textSize = 20f
+                        tvFirstName.setTypeface(null, Typeface.BOLD)
+
                         tvLastName.text = document.getString("lastName")
+                        tvLastName.textSize = 20f
+                        tvLastName.setTypeface(null, Typeface.BOLD)
+
                         tvEmailAddress.text = document.getString("email")
+                        tvEmailAddress.textSize = 20f
+                        tvEmailAddress.setTypeface(null, Typeface.BOLD)
+
                         tvPhoneNumber.text = document.getString("phoneNumber")
+                        tvPhoneNumber.textSize = 20f
+                        tvPhoneNumber.setTypeface(null, Typeface.BOLD)
+
                         tvUserType.text = document.getString("userType")
+                        tvUserType.textSize = 20f
+                        tvUserType.setTypeface(null, Typeface.BOLD)
                     } else {
                         Toast.makeText(
                             baseContext,

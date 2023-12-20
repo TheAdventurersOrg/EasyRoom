@@ -46,4 +46,128 @@
             android:src="@drawable/ic_profile" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/ivPayment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/payment"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_payment"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/ivNotificationsTenant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHeader" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#05C8F4"
+        android:text="@string/payment"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivPayment"
+        app:layout_constraintStart_toStartOf="@id/ivPayment"
+        app:layout_constraintEnd_toEndOf="@id/ivPayment" />
+
+    <ImageView
+        android:id="@+id/ivNotificationsTenant"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/notifications"
+        android:background="@drawable/ic_notifications"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/ivPayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHeader"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#05C8F4"
+        android:text="@string/notifications"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant"
+        app:layout_constraintStart_toStartOf="@id/ivNotificationsTenant"
+        app:layout_constraintEnd_toEndOf="@id/ivNotificationsTenant" />
+
+    <ImageView
+        android:id="@+id/ivTask"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_task"
+        android:contentDescription="@string/task"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/ivOtherTenants"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#05C8F4"
+        android:text="@string/task"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivTask"
+        app:layout_constraintStart_toStartOf="@id/ivTask"
+        app:layout_constraintEnd_toEndOf="@id/ivTask" />
+
+    <ImageView
+        android:id="@+id/ivOtherTenants"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_other_tenants"
+        android:contentDescription="@string/other_tenants"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivTask"
+        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#05C8F4"
+        android:text="@string/other_tenants"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivOtherTenants"
+        app:layout_constraintStart_toStartOf="@id/ivOtherTenants"
+        app:layout_constraintEnd_toEndOf="@id/ivOtherTenants" />
+
+    <ImageView
+        android:id="@+id/ivOwner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/ic_owner"
+        android:contentDescription="@string/owner"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/ivTask"
+        app:layout_constraintStart_toStartOf="@id/ivTask"
+        app:layout_constraintTop_toBottomOf="@id/ivOtherTenants" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#05C8F4"
+        android:text="@string/owner"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivOwner"
+        app:layout_constraintStart_toStartOf="@id/ivOwner"
+        app:layout_constraintEnd_toEndOf="@id/ivOwner" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

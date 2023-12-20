@@ -29,7 +29,7 @@
         android:labelFor="@+id/etFirstName"
         android:text="@string/first_name"
         android:textColor="#05C8F4"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvFirstName"
         app:layout_constraintStart_toStartOf="@+id/tvFirstName" />
@@ -53,7 +53,7 @@
         android:labelFor="@+id/etLastName"
         android:text="@string/last_name"
         android:textColor="#05C8F4"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvLastName"
         app:layout_constraintTop_toBottomOf="@+id/tvFirstName" />
@@ -77,7 +77,7 @@
         android:labelFor="@+id/etEmailAddress"
         android:text="@string/email"
         android:textColor="#05C8F4"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/tvLastName" />
@@ -101,7 +101,7 @@
         android:labelFor="@+id/etPhoneNumber"
         android:text="@string/phone_number"
         android:textColor="#05C8F4"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvPhoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/tvEmailAddress" />
@@ -125,7 +125,7 @@
         android:labelFor="@+id/etUserType"
         android:text="@string/user_type"
         android:textColor="#05C8F4"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tvUserType"
         app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber" />
