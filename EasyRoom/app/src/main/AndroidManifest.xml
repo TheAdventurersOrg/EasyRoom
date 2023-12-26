@@ -15,6 +15,18 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".screen.EditPropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.DeletePropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.AddPropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.MyPropertiesActivity"
+            android:exported="false" />
+        <activity
             android:name=".model.ModelsActivity"
             android:exported="false" />
         <activity
