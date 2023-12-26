@@ -1,11 +1,12 @@
-package pt.ipca.easyroom
+package pt.ipca.easyroom.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import pt.ipca.easyroom.R
 
-class OtherTenantsActivity : AppCompatActivity() {
+class NotificationsOwnerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_other_tenants)
+        setContentView(R.layout.activity_notifications)
     }
 }

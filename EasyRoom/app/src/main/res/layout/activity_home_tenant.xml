@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000010"
-    tools:context=".HomeTenantActivity">
+    tools:context=".screen.HomeTenantActivity">
 
     <LinearLayout
         android:id="@+id/llHeader"

@@ -1,9 +1,10 @@
-package pt.ipca.easyroom
+package pt.ipca.easyroom.screen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import pt.ipca.easyroom.R
 
 class HomeOwnerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

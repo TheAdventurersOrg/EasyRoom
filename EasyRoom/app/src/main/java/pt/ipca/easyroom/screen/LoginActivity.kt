@@ -1,4 +1,4 @@
-package pt.ipca.easyroom
+package pt.ipca.easyroom.screen
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import pt.ipca.easyroom.R
 
 
 class LoginActivity : AppCompatActivity() {

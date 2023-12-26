@@ -1,11 +1,12 @@
-package pt.ipca.easyroom
+package pt.ipca.easyroom.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import pt.ipca.easyroom.R
 
-class PropertiesActivity : AppCompatActivity() {
+class TaskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_properties)
+        setContentView(R.layout.activity_task)
     }
 }

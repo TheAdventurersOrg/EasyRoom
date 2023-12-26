@@ -15,40 +15,46 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
-            android:name=".OwnerActivity"
+            android:name=".model.ModelsActivity"
             android:exported="false" />
         <activity
-            android:name=".OtherTenantsActivity"
+            android:name=".data.DataSourceActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsTenantActivity"
+            android:name=".screen.OwnerActivity"
             android:exported="false" />
         <activity
-            android:name=".TaskActivity"
+            android:name=".screen.OtherTenantsActivity"
             android:exported="false" />
         <activity
-            android:name=".PaymentActivity"
+            android:name=".screen.NotificationsTenantActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificationsOwnerActivity"
+            android:name=".screen.TaskActivity"
             android:exported="false" />
         <activity
-            android:name=".PropertiesActivity"
+            android:name=".screen.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".screen.NotificationsOwnerActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeTenantActivity"
+            android:name=".screen.PropertiesActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".screen.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeOwnerActivity"
+            android:name=".screen.HomeTenantActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".screen.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.HomeOwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
