@@ -1,12 +1,18 @@
 package pt.ipca.easyroom.data
 
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.User
 
-class DataSourceActivity {
+interface PropertyCallback {
+    fun onCallback(value: List<Property>)
+}
+
+class DataSourceActivity(private val context: Context) {
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     fun addUser(user: User, uid: String) {
@@ -28,15 +34,68 @@ class DataSourceActivity {
     }
 
     fun addProperty(property: Property) {
-        db.collection("properties")
-            .document()
-            .set(property)
+        val newPropertyRef = db.collection("properties").document()
+        property.id = newPropertyRef.id
+        newPropertyRef.set(property)
             .addOnSuccessListener {
-                Log.d(TAG, "Property added successfully.")
+                Log.d(TAG, "Property added successfully with ID: ${property.id}")
             }
             .addOnFailureListener { _ ->
                 Log.w(TAG, "Error adding property.")
             }
+    }
+
+    fun getPropertiesByOwner(ownerId: String, callback: PropertyCallback) {
+        db.collection("properties")
+            .whereEqualTo("ownerId", ownerId)
+            .get()
+            .addOnSuccessListener { documents ->
+                val properties = ArrayList<Property>()
+                for (document in documents) {
+                    val property = document.toObject(Property::class.java)
+                    properties.add(property)
+                }
+                callback.onCallback(properties)
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun updateProperty(propertyId: String, updatedProperty: Property) {
+        db.collection("properties")
+            .document(propertyId)
+            .set(updatedProperty)
+            .addOnSuccessListener {
+                Log.d(TAG, "Property updated successfully.")
+            }
+            .addOnFailureListener { _ ->
+                Log.w(TAG, "Error updating property.")
+            }
+    }
+
+    fun deleteProperty(propertyId: String) {
+        Toast.makeText(context, "Deleting property with ID: $propertyId", Toast.LENGTH_SHORT).show()
+        db.collection("properties")
+            .document(propertyId)
+            .delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Property deleted successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error deleting property.", e)
+            }
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Property deleted successfully.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Failed to delete property.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    fun generateNewPropertyId(): String {
+        return db.collection("properties").document().id
     }
 }
 

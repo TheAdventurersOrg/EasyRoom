@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import pt.ipca.easyroom.R
 
-class MyPropertiesActivity : AppCompatActivity() {
+class PropertyInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_properties)
+        setContentView(R.layout.activity_property_information)
     }
 }

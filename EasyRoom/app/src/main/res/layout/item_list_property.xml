@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#000000"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvPropertyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivPropertyInformation"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/property_information"
+        android:src="@drawable/ic_information" />
+
+    <ImageView
+        android:id="@+id/ivEditProperty"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/edit_property"
+        android:src="@drawable/ic_edit_property" />
+
+    <ImageView
+        android:id="@+id/ivDeleteProperty"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/delete_property"
+        android:src="@drawable/ic_delete_property" />
+
+</LinearLayout>
+

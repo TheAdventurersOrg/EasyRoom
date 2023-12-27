@@ -70,7 +70,7 @@ class RegisterActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                             } else {
-                                val dataSource = DataSourceActivity()
+                                val dataSource = DataSourceActivity(this)
                                 val newUser = when (userType) {
                                     "Owner" -> Owner(firstName, lastName, email, phoneNumber)
                                     "Tenant" -> Tenant(firstName, lastName, email, phoneNumber)

@@ -22,7 +22,7 @@ class AddPropertyActivity : AppCompatActivity() {
         val btToCreate = findViewById<Button>(R.id.btToCreate)
 
         auth = FirebaseAuth.getInstance()
-        dataSourceActivity = DataSourceActivity()
+        dataSourceActivity = DataSourceActivity(this)
 
         btToCreate.setOnClickListener {
             val propertyName = findViewById<EditText>(R.id.etPropertyName).text.toString()
@@ -34,7 +34,8 @@ class AddPropertyActivity : AppCompatActivity() {
             } else {
                 val user = auth.currentUser
                 if (user != null) {
-                    val newProperty = Property(propertyName, propertyAddress, propertyDescription, user.uid)
+                    val newPropertyId = dataSourceActivity.generateNewPropertyId()
+                    val newProperty = Property(newPropertyId, propertyName, propertyAddress, propertyDescription, user.uid)
                     dataSourceActivity.addProperty(newProperty)
                     Toast.makeText(this, "Property added successfully.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, PropertiesActivity::class.java)

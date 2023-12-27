@@ -29,10 +29,11 @@ data class Tenant(
 }
 
 data class Property(
-    val name: String,
-    val address: String,
-    val description: String,
-    val ownerId: String
+    var id: String = "",
+    val name: String = "",
+    val address: String = "",
+    val description: String = "",
+    val ownerId: String = ""
 )
 
 
