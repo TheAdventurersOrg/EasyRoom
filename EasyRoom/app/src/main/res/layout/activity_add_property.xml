@@ -4,6 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.AddPropertyActivity">
+    android:background="#000010"
+    tools:context=".screen.RegisterActivity">
+
+    <TextView
+        android:id="@+id/tvNewProperty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_property"
+        android:textColor="#05C8F4"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998" />
+
+    <EditText
+        android:id="@+id/etPropertyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:width="300dp"
+        android:autofillHints="password"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/property_name"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewProperty" />
+
+    <EditText
+        android:id="@+id/etPropertyAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:width="300dp"
+        android:autofillHints="password"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/property_address"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPropertyName" />
+
+    <EditText
+        android:id="@+id/etPropertyDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:width="300dp"
+        android:autofillHints="phone"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="@string/property_description"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPropertyAddress" />
+
+    <Button
+        android:id="@+id/btToCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#05C8F4"
+        android:layout_marginTop="15dp"
+        android:text="@string/to_create"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPropertyDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

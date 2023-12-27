@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.data.DataSourceActivity
+import pt.ipca.easyroom.model.Owner
+import pt.ipca.easyroom.model.Tenant
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -69,7 +71,11 @@ class RegisterActivity : AppCompatActivity() {
                                 ).show()
                             } else {
                                 val dataSource = DataSourceActivity()
-                                val newUser = dataSource.createUser(firstName, lastName, email, phoneNumber, userType)
+                                val newUser = when (userType) {
+                                    "Owner" -> Owner(firstName, lastName, email, phoneNumber)
+                                    "Tenant" -> Tenant(firstName, lastName, email, phoneNumber)
+                                    else -> throw IllegalArgumentException("Invalid user type: $userType")
+                                }
                                 dataSource.addUser(newUser, user!!.uid)
 
                                 Toast.makeText(

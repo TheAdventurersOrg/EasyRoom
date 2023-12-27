@@ -44,4 +44,11 @@
     <string name="delete_property">Delete Property</string>
     <string name="edit_property">Edit Property</string>
 
+    <!-- Add properties screen -->
+    <string name="new_property">New Property</string>
+    <string name="property_name">Property Name</string>
+    <string name="property_address">Property Address</string>
+    <string name="property_description">Property Description</string>
+    <string name="to_create">To Create</string>
+
 </resources>
