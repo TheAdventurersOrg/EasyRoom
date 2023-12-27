@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.User
@@ -62,15 +63,32 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-    fun updateProperty(propertyId: String, updatedProperty: Property) {
-        db.collection("properties")
+    fun updateProperty(propertyId: String, updatedProperty: Property): Task<Void> {
+        return db.collection("properties")
             .document(propertyId)
             .set(updatedProperty)
             .addOnSuccessListener {
                 Log.d(TAG, "Property updated successfully.")
             }
-            .addOnFailureListener { _ ->
-                Log.w(TAG, "Error updating property.")
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error updating property.", e)
+            }
+    }
+
+    fun getPropertyById(propertyId: String, callback: (Property?) -> Unit) {
+        db.collection("properties")
+            .document(propertyId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val property = document.toObject(Property::class.java)
+                    callback(property)
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
             }
     }
 

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.data.DataSourceActivity
 import pt.ipca.easyroom.model.Property
-import pt.ipca.easyroom.screen.EditPropertyActivity
+import pt.ipca.easyroom.screen.UpdatePropertyActivity
 import pt.ipca.easyroom.screen.PropertiesActivity
 import pt.ipca.easyroom.screen.PropertyInformationActivity
 
@@ -40,7 +40,7 @@ class PropertyAdapter(private val properties: List<Property>, private val dataSo
 
         val ivEditProperty = holder.view.findViewById<ImageView>(R.id.ivEditProperty)
         ivEditProperty.setOnClickListener {
-            val intent = Intent(context, EditPropertyActivity::class.java)
+            val intent = Intent(context, UpdatePropertyActivity::class.java)
             intent.putExtra("PROPERTY_ID", property.id)
             context.startActivity(intent)
         }

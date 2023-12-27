@@ -25,7 +25,7 @@
         android:id="@+id/ivEditProperty"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="@string/edit_property"
+        android:contentDescription="@string/update_property"
         android:src="@drawable/ic_edit_property" />
 
     <ImageView
