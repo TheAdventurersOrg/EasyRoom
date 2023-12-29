@@ -54,4 +54,10 @@
     <!-- Update properties screen -->
     <string name="save_changes">Save Changes</string>
 
+    <!-- Property screen -->
+    <string name="property"></string>
+    <string name="payments">Payments</string>
+    <string name="rooms">Rooms</string>
+    <string name="tenants">Tenants</string>
+
 </resources>

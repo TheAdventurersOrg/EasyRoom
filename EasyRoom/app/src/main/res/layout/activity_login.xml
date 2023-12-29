@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000010"
+    android:background="@color/dark_blue"
     tools:context=".screen.LoginActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
-        android:textColor="#05C8F4"
+        android:textColor="@color/light_blue"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
-        android:backgroundTint="#05C8F4"
+        android:backgroundTint="@color/light_blue"
         android:text="@string/signIn"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
-        android:backgroundTint="#05C8F4"
+        android:backgroundTint="@color/light_blue"
         android:text="@string/createAccount"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

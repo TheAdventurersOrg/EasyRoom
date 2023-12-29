@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000010"
+    android:background="@color/dark_blue"
     tools:context=".screen.RegisterActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_property"
-        android:textColor="#05C8F4"
+        android:textColor="@color/light_blue"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +76,7 @@
         android:id="@+id/btToCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#05C8F4"
+        android:backgroundTint="@color/light_blue"
         android:layout_marginTop="15dp"
         android:text="@string/to_create"
         android:textColor="@color/black"

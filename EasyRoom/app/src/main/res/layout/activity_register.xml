@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000010"
+    android:background="@color/dark_blue"
     tools:context=".screen.RegisterActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:textColor="#05C8F4"
+        android:textColor="@color/light_blue"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/tv_radio_group"
-        android:textColor="#05C8F4"
+        android:textColor="@color/light_blue"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rb_owner"
-            android:textColor="#05C8F4"
+            android:textColor="@color/light_blue"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -159,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rb_tenant"
-            android:textColor="#05C8F4"
+            android:textColor="@color/light_blue"
             android:textSize="17sp"
             android:textStyle="bold" />
     </RadioGroup>
@@ -169,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/terms"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +179,7 @@
         android:id="@+id/btRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#05C8F4"
+        android:backgroundTint="@color/light_blue"
         android:text="@string/button_register"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

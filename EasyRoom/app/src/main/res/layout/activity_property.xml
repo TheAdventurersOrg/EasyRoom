@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_blue"
-    tools:context=".screen.HomeTenantActivity">
+    tools:context=".screen.PropertyActivity">
 
     <LinearLayout
         android:id="@+id/llHeader"
@@ -26,31 +26,31 @@
             android:src="@drawable/ic_logout" />
 
         <TextView
-            android:id="@+id/tvHome"
+            android:id="@+id/tvProperty"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/home"
+            android:text="@string/property"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold"
             android:gravity="center" />
 
         <ImageView
-            android:id="@+id/ivProfile"
+            android:id="@+id/ivHome"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="@string/description_ic_profile"
-            android:src="@drawable/ic_profile" />
+            android:contentDescription="@string/description_ic_home"
+            android:src="@drawable/ic_home" />
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/ivPayment"
+        android:id="@+id/ivPayments"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/payment"
+        android:contentDescription="@string/payments"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -64,12 +64,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/light_blue"
-        android:text="@string/payment"
+        android:text="@string/payments"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivPayment"
-        app:layout_constraintStart_toStartOf="@id/ivPayment"
-        app:layout_constraintEnd_toEndOf="@id/ivPayment" />
+        app:layout_constraintTop_toBottomOf="@id/ivPayments"
+        app:layout_constraintStart_toStartOf="@id/ivPayments"
+        app:layout_constraintEnd_toEndOf="@id/ivPayments" />
 
     <ImageView
         android:id="@+id/ivNotificationsTenant"
@@ -78,7 +78,7 @@
         android:contentDescription="@string/notifications"
         android:background="@drawable/ic_notifications"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toEndOf="@id/ivPayment"
+        app:layout_constraintStart_toEndOf="@id/ivPayments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llHeader"
         android:layout_marginStart="8dp"
@@ -86,88 +86,61 @@
         android:layout_marginTop="16dp" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/light_blue"
         android:text="@string/notifications"
+        android:textColor="@color/light_blue"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant"
+        app:layout_constraintEnd_toEndOf="@id/ivNotificationsTenant"
         app:layout_constraintStart_toStartOf="@id/ivNotificationsTenant"
-        app:layout_constraintEnd_toEndOf="@id/ivNotificationsTenant" />
+        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
 
     <ImageView
-        android:id="@+id/ivTask"
+        android:id="@+id/ivRooms"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_task"
-        android:contentDescription="@string/task"
+        android:background="@drawable/ic_room"
+        android:contentDescription="@string/rooms"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/ivOtherTenants"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
+        app:layout_constraintEnd_toEndOf="@+id/ivPayments"
+        app:layout_constraintStart_toStartOf="@+id/ivPayments"
+        app:layout_constraintTop_toBottomOf="@id/ivPayments" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/light_blue"
-        android:text="@string/task"
+        android:text="@string/rooms"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivTask"
-        app:layout_constraintStart_toStartOf="@id/ivTask"
-        app:layout_constraintEnd_toEndOf="@id/ivTask" />
+        app:layout_constraintTop_toBottomOf="@id/ivRooms"
+        app:layout_constraintStart_toStartOf="@id/ivRooms"
+        app:layout_constraintEnd_toEndOf="@id/ivRooms" />
 
     <ImageView
-        android:id="@+id/ivOtherTenants"
+        android:id="@+id/ivTenants"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="16dp"
         android:background="@drawable/ic_other_tenants"
-        android:contentDescription="@string/other_tenants"
+        android:contentDescription="@string/tenants"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivTask"
+        app:layout_constraintEnd_toEndOf="@+id/ivNotificationsTenant"
+        app:layout_constraintStart_toStartOf="@+id/ivNotificationsTenant"
         app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/light_blue"
-        android:text="@string/other_tenants"
+        android:text="@string/tenants"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivOtherTenants"
-        app:layout_constraintStart_toStartOf="@id/ivOtherTenants"
-        app:layout_constraintEnd_toEndOf="@id/ivOtherTenants" />
-
-    <ImageView
-        android:id="@+id/ivOwner"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/ic_owner"
-        android:contentDescription="@string/owner"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/ivTask"
-        app:layout_constraintStart_toStartOf="@id/ivTask"
-        app:layout_constraintTop_toBottomOf="@id/ivOtherTenants" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/light_blue"
-        android:text="@string/owner"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivOwner"
-        app:layout_constraintStart_toStartOf="@id/ivOwner"
-        app:layout_constraintEnd_toEndOf="@id/ivOwner" />
-
+        app:layout_constraintTop_toBottomOf="@id/ivTenants"
+        app:layout_constraintStart_toStartOf="@id/ivTenants"
+        app:layout_constraintEnd_toEndOf="@id/ivTenants" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

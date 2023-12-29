@@ -14,6 +14,7 @@ import pt.ipca.easyroom.data.DataSourceActivity
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.screen.UpdatePropertyActivity
 import pt.ipca.easyroom.screen.PropertiesActivity
+import pt.ipca.easyroom.screen.PropertyActivity
 import pt.ipca.easyroom.screen.PropertyInformationActivity
 
 class PropertyAdapter(private val properties: List<Property>, private val dataSource: DataSourceActivity, private val context: Context) : RecyclerView.Adapter<PropertyAdapter.ViewHolder>() {
@@ -30,6 +31,12 @@ class PropertyAdapter(private val properties: List<Property>, private val dataSo
 
         val tvPropertyName = holder.view.findViewById<TextView>(R.id.tvPropertyName)
         tvPropertyName.text = property.name
+
+        tvPropertyName.setOnClickListener {
+            val intent = Intent(context, PropertyActivity::class.java)
+            intent.putExtra("PROPERTY_NAME", property.name)
+            context.startActivity(intent)
+        }
 
         val ivPropertyInformation = holder.view.findViewById<ImageView>(R.id.ivPropertyInformation)
         ivPropertyInformation.setOnClickListener {
