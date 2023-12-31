@@ -36,5 +36,12 @@ data class Property(
     val ownerId: String = ""
 )
 
+data class Room(
+    var id: String = "",
+    val name: String = "",
+    val description: String = "",
+    val propertyId: String = ""
+)
+
 
 

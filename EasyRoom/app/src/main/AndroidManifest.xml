@@ -15,6 +15,33 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".screen.PropertyTenantsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.PropertyNotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.PropertyPaymentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.UpdateRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.RoomAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".screen.AddRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomsActivity"
+            android:exported="false" />
+        <activity
             android:name=".screen.PropertyActivity"
             android:exported="false" />
         <activity

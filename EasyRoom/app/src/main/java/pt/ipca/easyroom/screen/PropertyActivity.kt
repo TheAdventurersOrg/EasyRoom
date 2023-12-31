@@ -16,6 +16,30 @@ class PropertyActivity : AppCompatActivity() {
         val propertyName = intent.getStringExtra("PROPERTY_NAME")
         tvProperty.text = propertyName
 
+        val ivPropertyPayments = findViewById<ImageView>(R.id.ivPropertyPayments)
+        ivPropertyPayments.setOnClickListener {
+            val intent = Intent(this, PropertyPaymentsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ivPropertyNotifications = findViewById<ImageView>(R.id.ivPropertyNotifications)
+        ivPropertyNotifications.setOnClickListener {
+            val intent = Intent(this, PropertyNotificationsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ivPropertyRooms = findViewById<ImageView>(R.id.ivPropertyRooms)
+        ivPropertyRooms.setOnClickListener {
+            val intent = Intent(this, RoomsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val ivPropertyTenants = findViewById<ImageView>(R.id.ivPropertyTenants)
+        ivPropertyTenants.setOnClickListener {
+            val intent = Intent(this, PropertyTenantsActivity::class.java)
+            startActivity(intent)
+        }
+
         val ivLogOut = findViewById<ImageView>(R.id.ivLogOut)
         ivLogOut.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

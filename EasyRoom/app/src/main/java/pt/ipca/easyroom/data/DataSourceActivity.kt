@@ -7,10 +7,15 @@ import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import pt.ipca.easyroom.model.Property
+import pt.ipca.easyroom.model.Room
 import pt.ipca.easyroom.model.User
 
 interface PropertyCallback {
     fun onCallback(value: List<Property>)
+}
+
+interface RoomCallback {
+    fun onCallback(value: List<Room>)
 }
 
 class DataSourceActivity(private val context: Context) {
@@ -115,6 +120,89 @@ class DataSourceActivity(private val context: Context) {
     fun generateNewPropertyId(): String {
         return db.collection("properties").document().id
     }
+
+    fun addRoom(room: Room) {
+        val newRoomRef = db.collection("rooms").document()
+        room.id = newRoomRef.id
+        newRoomRef.set(room)
+            .addOnSuccessListener {
+                Log.d(TAG, "Room added successfully with ID: ${room.id}")
+            }
+            .addOnFailureListener { _ ->
+                Log.w(TAG, "Error adding room.")
+            }
+    }
+
+    fun getRoomsByProperty(propertyId: String, callback: (List<Room>) -> Unit) {
+        db.collection("rooms")
+            .whereEqualTo("propertyId", propertyId)
+            .get()
+            .addOnSuccessListener { documents ->
+                val rooms = ArrayList<Room>()
+                for (document in documents) {
+                    val room = document.toObject(Room::class.java)
+                    rooms.add(room)
+                }
+                callback(rooms)
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun updateRoom(roomId: String, updatedRoom: Room): Task<Void> {
+        return db.collection("rooms")
+            .document(roomId)
+            .set(updatedRoom)
+            .addOnSuccessListener {
+                Log.d(TAG, "Room updated successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error updating room.", e)
+            }
+    }
+
+    fun getRoomById(roomId: String, callback: (Room?) -> Unit) {
+        db.collection("rooms")
+            .document(roomId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val room = document.toObject(Room::class.java)
+                    callback(room)
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+    }
+
+    fun deleteRoom(roomId: String) {
+        Toast.makeText(context, "Deleting room with ID: $roomId", Toast.LENGTH_SHORT).show()
+        db.collection("rooms")
+            .document(roomId)
+            .delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Room deleted successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error deleting room.", e)
+            }
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Room deleted successfully.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Failed to delete room.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    fun generateNewRoomId(): String {
+        return db.collection("rooms").document().id
+    }
+
 }
 
 

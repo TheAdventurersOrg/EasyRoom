@@ -60,4 +60,10 @@
     <string name="rooms">Rooms</string>
     <string name="tenants">Tenants</string>
 
+    <!-- Rooms screen -->
+    <string name="add_room">Add Room</string>
+    <string name="room_information">Room Information</string>
+    <string name="update_room">Update Room</string>
+    <string name="delete_room">Delete Room</string>
+
 </resources>
