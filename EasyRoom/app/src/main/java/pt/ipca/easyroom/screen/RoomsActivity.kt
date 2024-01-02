@@ -3,13 +3,15 @@ package pt.ipca.easyroom.screen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.adapter.RoomAdapter
 import pt.ipca.easyroom.data.DataSourceActivity
+import pt.ipca.easyroom.data.RoomCallback
+import pt.ipca.easyroom.model.Room
 
 class RoomsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,15 +22,18 @@ class RoomsActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.rvRooms)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RoomAdapter(emptyList(), dataSourceActivity, this@RoomsActivity)
-
-        val dataSource = DataSourceActivity(this)
-        val propertyId = FirebaseAuth.getInstance().currentUser?.uid
+        val propertyId = intent.getStringExtra("PROPERTY_ID")
         if (propertyId != null) {
-            dataSource.getRoomsByProperty(propertyId) { rooms ->
-                val adapter = RoomAdapter(rooms, dataSourceActivity, this@RoomsActivity)
-                recyclerView.adapter = adapter
-            }
+            recyclerView.adapter = RoomAdapter(emptyList(), dataSourceActivity, this@RoomsActivity, propertyId)
+
+            Log.d("RoomsActivity", "Getting rooms for property ID: $propertyId")
+            dataSourceActivity.getRoomsByProperty(propertyId, object : RoomCallback {
+                override fun onCallback(value: List<Room>) {
+                    Log.d("RoomsActivity", "Number of rooms returned: ${value.size}")
+                    val adapter = RoomAdapter(value, dataSourceActivity, this@RoomsActivity, propertyId)
+                    recyclerView.adapter = adapter
+                }
+            })
         }
 
         val ivLogOut = findViewById<ImageView>(R.id.ivLogOut)
@@ -46,7 +51,10 @@ class RoomsActivity : AppCompatActivity() {
         val ivAddRoom = findViewById<ImageView>(R.id.ivAddRoom)
         ivAddRoom.setOnClickListener {
             val intent = Intent(this, AddRoomActivity::class.java)
+            intent.putExtra("PROPERTY_ID", propertyId)
+            Log.d("AddRoomActivity", "Property ID: $propertyId")
             startActivity(intent)
         }
+
     }
 }

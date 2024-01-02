@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.data.DataSourceActivity
 import pt.ipca.easyroom.model.Room
+import pt.ipca.easyroom.screen.PropertyActivity
 import pt.ipca.easyroom.screen.UpdateRoomActivity
-import pt.ipca.easyroom.screen.RoomsActivity
 import pt.ipca.easyroom.screen.RoomActivity
 import pt.ipca.easyroom.screen.RoomInformationActivity
 
-class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSourceActivity, private val context: Context) : RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
+class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSourceActivity, private val context: Context, private val propertyId: String) : RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
@@ -59,7 +59,8 @@ class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSou
                 .setMessage("Are you sure you want to delete this room?")
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     dataSource.deleteRoom(room.id)
-                    val intent = Intent(context, RoomsActivity::class.java)
+                    val intent = Intent(context, PropertyActivity::class.java)
+                    intent.putExtra("PROPERTY_ID", propertyId)
                     context.startActivity(intent)
                 }
                 .setNegativeButton(android.R.string.cancel, null)

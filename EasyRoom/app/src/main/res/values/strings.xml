@@ -66,4 +66,11 @@
     <string name="update_room">Update Room</string>
     <string name="delete_room">Delete Room</string>
 
+    <!-- Add properties screen -->
+    <string name="new_room">New Room</string>
+    <string name="room_name">Room Name</string>
+    <string name="room_description">Room Description</string>
+
+
+
 </resources>

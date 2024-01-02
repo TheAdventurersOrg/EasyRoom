@@ -3,6 +3,7 @@ package pt.ipca.easyroom.screen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import pt.ipca.easyroom.R
@@ -11,6 +12,8 @@ class PropertyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_property)
+
+        val propertyId = intent.getStringExtra("PROPERTY_ID")
 
         val tvProperty = findViewById<TextView>(R.id.tvProperty)
         val propertyName = intent.getStringExtra("PROPERTY_NAME")
@@ -31,6 +34,8 @@ class PropertyActivity : AppCompatActivity() {
         val ivPropertyRooms = findViewById<ImageView>(R.id.ivPropertyRooms)
         ivPropertyRooms.setOnClickListener {
             val intent = Intent(this, RoomsActivity::class.java)
+            intent.putExtra("PROPERTY_ID", propertyId)
+            Log.d("PropertyActivity", "Property ID: $propertyId")
             startActivity(intent)
         }
 

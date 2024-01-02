@@ -35,6 +35,7 @@ class PropertyAdapter(private val properties: List<Property>, private val dataSo
         tvPropertyName.setOnClickListener {
             val intent = Intent(context, PropertyActivity::class.java)
             intent.putExtra("PROPERTY_NAME", property.name)
+            intent.putExtra("PROPERTY_ID", property.id)
             context.startActivity(intent)
         }
 

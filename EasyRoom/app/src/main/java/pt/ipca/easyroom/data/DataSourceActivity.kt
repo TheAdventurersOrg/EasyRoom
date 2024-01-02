@@ -133,7 +133,7 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-    fun getRoomsByProperty(propertyId: String, callback: (List<Room>) -> Unit) {
+    fun getRoomsByProperty(propertyId: String, callback: RoomCallback) {
         db.collection("rooms")
             .whereEqualTo("propertyId", propertyId)
             .get()
@@ -143,7 +143,7 @@ class DataSourceActivity(private val context: Context) {
                     val room = document.toObject(Room::class.java)
                     rooms.add(room)
                 }
-                callback(rooms)
+                callback.onCallback(rooms)
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
@@ -202,7 +202,6 @@ class DataSourceActivity(private val context: Context) {
     fun generateNewRoomId(): String {
         return db.collection("rooms").document().id
     }
-
 }
 
 
