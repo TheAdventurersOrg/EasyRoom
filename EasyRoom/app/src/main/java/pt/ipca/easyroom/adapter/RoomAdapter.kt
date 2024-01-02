@@ -49,6 +49,7 @@ class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSou
         ivEditRoom.setOnClickListener {
             val intent = Intent(context, UpdateRoomActivity::class.java)
             intent.putExtra("ROOM_ID", room.id)
+            intent.putExtra("PROPERTY_ID", propertyId)
             context.startActivity(intent)
         }
 

@@ -49,6 +49,9 @@
     <string name="property_name">Property Name</string>
     <string name="property_address">Property Address</string>
     <string name="property_description">Property Description</string>
+    <string name="update_property_name">Change Property Name</string>
+    <string name="update_property_address">Change Property Address</string>
+    <string name="update_property_description">Change Property Description</string>
     <string name="to_create">To Create</string>
 
     <!-- Update properties screen -->
@@ -65,12 +68,14 @@
     <string name="room_information">Room Information</string>
     <string name="update_room">Update Room</string>
     <string name="delete_room">Delete Room</string>
+    <string name="update_room_name">Change Room Name</string>
+    <string name="update_room_description">Change Room Description</string>
 
-    <!-- Add properties screen -->
+
+    <!-- Add rooms screen -->
     <string name="new_room">New Room</string>
     <string name="room_name">Room Name</string>
     <string name="room_description">Room Description</string>
-
 
 
 </resources>
