@@ -77,5 +77,7 @@
     <string name="room_name">Room Name</string>
     <string name="room_description">Room Description</string>
 
+    <!-- Room screen -->
+    <string name="chat">Chat</string>
 
 </resources>

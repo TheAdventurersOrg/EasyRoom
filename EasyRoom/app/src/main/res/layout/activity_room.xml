@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_blue"
     tools:context=".screen.RoomActivity">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogOut"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/description_ic_menu"
+            android:src="@drawable/ic_logout" />
+
+        <TextView
+            android:id="@+id/tvRoom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/property"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/description_ic_home"
+            android:src="@drawable/ic_home" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivRoomPayments"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/payments"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_payment"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@id/ivRoomNotifications"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHeader" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:text="@string/payments"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomPayments"
+        app:layout_constraintStart_toStartOf="@id/ivRoomPayments"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomPayments" />
+
+    <ImageView
+        android:id="@+id/ivRoomNotifications"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/notifications"
+        android:background="@drawable/ic_notifications"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toEndOf="@id/ivRoomPayments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHeader"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notifications"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomNotifications"
+        app:layout_constraintStart_toStartOf="@id/ivRoomNotifications"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomNotifications" />
+
+    <ImageView
+        android:id="@+id/ivRoomChat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/ic_chat"
+        android:contentDescription="@string/chat"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/ivRoomPayments"
+        app:layout_constraintStart_toStartOf="@+id/ivRoomPayments"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomPayments" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:text="@string/chat"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomChat"
+        app:layout_constraintStart_toStartOf="@id/ivRoomChat"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomChat" />
+
+    <ImageView
+        android:id="@+id/ivRoomTenants"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/ic_other_tenants"
+        android:contentDescription="@string/tenants"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/ivRoomNotifications"
+        app:layout_constraintStart_toStartOf="@+id/ivRoomNotifications"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomNotifications" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:text="@string/tenants"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivRoomTenants"
+        app:layout_constraintStart_toStartOf="@id/ivRoomTenants"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomTenants" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

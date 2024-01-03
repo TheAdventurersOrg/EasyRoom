@@ -15,6 +15,18 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".screen.RoomTenantsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomNotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.RoomPaymentsActivity"
+            android:exported="false" />
+        <activity
             android:name=".screen.PropertyTenantsActivity"
             android:exported="false" />
         <activity
