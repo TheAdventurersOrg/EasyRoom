@@ -46,8 +46,8 @@ class PropertyAdapter(private val properties: List<Property>, private val dataSo
             context.startActivity(intent)
         }
 
-        val ivEditProperty = holder.view.findViewById<ImageView>(R.id.ivEditProperty)
-        ivEditProperty.setOnClickListener {
+        val ivUpdateProperty = holder.view.findViewById<ImageView>(R.id.ivUpdateProperty)
+        ivUpdateProperty.setOnClickListener {
             val intent = Intent(context, UpdatePropertyActivity::class.java)
             intent.putExtra("PROPERTY_ID", property.id)
             context.startActivity(intent)

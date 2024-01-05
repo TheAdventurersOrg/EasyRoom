@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.Room
+import pt.ipca.easyroom.model.Tenant
 import pt.ipca.easyroom.model.User
 
 interface PropertyCallback {
@@ -16,6 +17,10 @@ interface PropertyCallback {
 
 interface RoomCallback {
     fun onCallback(value: List<Room>)
+}
+
+interface TenantCallback {
+    fun onCallback(value: List<Tenant>)
 }
 
 class DataSourceActivity(private val context: Context) {
@@ -202,6 +207,36 @@ class DataSourceActivity(private val context: Context) {
     fun generateNewRoomId(): String {
         return db.collection("rooms").document().id
     }
+
+    fun getTenantsByRoom(roomId: String, callback: TenantCallback) {
+        db.collection("tenants")
+            .whereEqualTo("roomId", roomId)
+            .get()
+            .addOnSuccessListener { documents ->
+                val tenants = ArrayList<Tenant>()
+                for (document in documents) {
+                    val tenant = document.toObject(Tenant::class.java)
+                    tenants.add(tenant)
+                }
+                callback.onCallback(tenants)
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun excludeTenantFromRoom(tenantId: String) {
+        db.collection("tenants")
+            .document(tenantId)
+            .delete()
+            .addOnSuccessListener {
+                Log.d(TAG, "Tenant excluded successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error excluding tenant.", e)
+            }
+    }
+
 }
 
 

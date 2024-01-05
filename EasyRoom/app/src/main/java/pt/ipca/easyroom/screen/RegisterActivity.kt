@@ -72,11 +72,11 @@ class RegisterActivity : AppCompatActivity() {
                             } else {
                                 val dataSource = DataSourceActivity(this)
                                 val newUser = when (userType) {
-                                    "Owner" -> Owner(firstName, lastName, email, phoneNumber)
-                                    "Tenant" -> Tenant(firstName, lastName, email, phoneNumber)
+                                    "Owner" -> Owner(user!!.uid, firstName, lastName, email, phoneNumber)
+                                    "Tenant" -> Tenant(user!!.uid, firstName, lastName, email, phoneNumber)
                                     else -> throw IllegalArgumentException("Invalid user type: $userType")
                                 }
-                                dataSource.addUser(newUser, user!!.uid)
+                                dataSource.addUser(newUser, user.uid)
 
                                 Toast.makeText(
                                     baseContext,

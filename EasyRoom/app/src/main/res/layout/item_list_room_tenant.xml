@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvPropertyName"
+        android:id="@+id/tvRoomTenantName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -15,25 +15,10 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/ivPropertyInformation"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:contentDescription="@string/information"
-        android:src="@drawable/ic_information" />
-
-    <ImageView
-        android:id="@+id/ivUpdateProperty"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:contentDescription="@string/update"
-        android:src="@drawable/ic_edit" />
-
-    <ImageView
-        android:id="@+id/ivDeleteProperty"
+        android:id="@+id/ivExcludeFromRoom"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:contentDescription="@string/delete"
-        android:src="@drawable/ic_delete" />
+        android:src="@drawable/ic_exclude_from_room" />
 
 </LinearLayout>
-

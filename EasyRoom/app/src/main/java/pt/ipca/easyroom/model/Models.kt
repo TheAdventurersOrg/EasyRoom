@@ -9,6 +9,7 @@ interface User {
 }
 
 data class Owner(
+    val id: String,
     override val firstName: String,
     override val lastName: String,
     override val email: String,
@@ -19,6 +20,7 @@ data class Owner(
 }
 
 data class Tenant(
+    val id: String,
     override val firstName: String,
     override val lastName: String,
     override val email: String,

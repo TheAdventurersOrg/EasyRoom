@@ -4,6 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_blue"
     tools:context=".screen.RoomTenantsActivity">
+
+    <LinearLayout
+        android:id="@+id/llHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/ivLogOut"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/description_ic_menu"
+            android:src="@drawable/ic_logout" />
+
+        <TextView
+            android:id="@+id/tvRoomTenants"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/room_tenants"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/description_ic_home"
+            android:src="@drawable/ic_home" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRoomTenants"
+        android:layout_width="400dp"
+        android:layout_height="430dp"
+        app:layout_constraintBottom_toTopOf="@id/ivAddTenant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHeader" />
+
+    <ImageView
+        android:id="@+id/ivAddTenant"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/ic_add_tenant"
+        android:contentDescription="@string/add_tenant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvRoomTenants" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:text="@string/add_tenant"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivAddTenant"
+        app:layout_constraintStart_toStartOf="@id/ivAddTenant"
+        app:layout_constraintEnd_toEndOf="@id/ivAddTenant" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

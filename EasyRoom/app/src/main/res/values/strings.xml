@@ -63,6 +63,11 @@
     <string name="rooms">Rooms</string>
     <string name="tenants">Tenants</string>
 
+    <!-- List items RecyclerView -->
+    <string name="information">Information</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+
     <!-- Rooms screen -->
     <string name="add_room">Add Room</string>
     <string name="room_information">Room Information</string>
@@ -79,5 +84,12 @@
 
     <!-- Room screen -->
     <string name="chat">Chat</string>
+
+    <!-- Room tenants screen -->
+    <string name="room_tenants">Room Tenants</string>
+    <string name="add_tenant">Add Tenant</string>
+
+    <!-- Room tenant screen -->
+    <string name="tenant_name">%1$s %2$s</string>
 
 </resources>

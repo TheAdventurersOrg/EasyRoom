@@ -18,21 +18,21 @@
         android:id="@+id/ivRoomInformation"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="@string/room_information"
+        android:contentDescription="@string/information"
         android:src="@drawable/ic_information" />
 
     <ImageView
-        android:id="@+id/ivEditRoom"
+        android:id="@+id/ivUpdateRoom"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="@string/update_room"
+        android:contentDescription="@string/update"
         android:src="@drawable/ic_edit" />
 
     <ImageView
         android:id="@+id/ivDeleteRoom"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="@string/delete_room"
+        android:contentDescription="@string/delete"
         android:src="@drawable/ic_delete" />
 
 </LinearLayout>

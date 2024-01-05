@@ -45,8 +45,8 @@ class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSou
             context.startActivity(intent)
         }
 
-        val ivEditRoom = holder.view.findViewById<ImageView>(R.id.ivEditRoom)
-        ivEditRoom.setOnClickListener {
+        val ivUpdateRoom = holder.view.findViewById<ImageView>(R.id.ivUpdateRoom)
+        ivUpdateRoom.setOnClickListener {
             val intent = Intent(context, UpdateRoomActivity::class.java)
             intent.putExtra("ROOM_ID", room.id)
             intent.putExtra("PROPERTY_ID", propertyId)
