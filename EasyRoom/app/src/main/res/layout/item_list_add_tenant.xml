@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvRoomTenantName"
+        android:id="@+id/tvTenantName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -15,10 +15,10 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/ivExcludeFromRoom"
+        android:id="@+id/ivAddTenantInRoom"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="@string/exclude_from_room"
-        android:src="@drawable/ic_exclude_from_room" />
+        android:contentDescription="@string/add_tenant_in_room"
+        android:src="@drawable/ic_add_tenant" />
 
 </LinearLayout>

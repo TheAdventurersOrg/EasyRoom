@@ -209,8 +209,40 @@ class DataSourceActivity(private val context: Context) {
     }
 
     fun getTenantsByRoom(roomId: String, callback: TenantCallback) {
+        Log.d("DataSourceActivity", "Getting tenants for room ID: $roomId")
         db.collection("tenants")
             .whereEqualTo("roomId", roomId)
+            .get()
+            .addOnSuccessListener { documents ->
+                val tenants = ArrayList<Tenant>()
+                for (document in documents) {
+                    val tenant = document.toObject(Tenant::class.java)
+                    tenants.add(tenant)
+                    Log.d("DataSourceActivity", "Tenant added: ${tenant.firstName} ${tenant.lastName}")
+                }
+                Log.d("DataSourceActivity", "Number of tenants returned: ${tenants.size}")
+                callback.onCallback(tenants)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("DataSourceActivity", "Error getting documents: ", exception)
+            }
+    }
+
+    fun excludeTenantFromRoom(tenantId: String) {
+        db.collection("tenants")
+            .document(tenantId)
+            .update("roomId", null)
+            .addOnSuccessListener {
+                Log.d(TAG, "Tenant excluded from room successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error excluding tenant from room.", e)
+            }
+    }
+
+    fun getTenantsWithoutRoom(callback: TenantCallback) {
+        db.collection("tenants")
+            .whereEqualTo("roomId", "none")
             .get()
             .addOnSuccessListener { documents ->
                 val tenants = ArrayList<Tenant>()
@@ -225,17 +257,18 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-    fun excludeTenantFromRoom(tenantId: String) {
-        db.collection("tenants")
+    fun updateTenant(tenantId: String, updatedTenant: Tenant): Task<Void> {
+        return db.collection("tenants")
             .document(tenantId)
-            .delete()
+            .set(updatedTenant)
             .addOnSuccessListener {
-                Log.d(TAG, "Tenant excluded successfully.")
+                Log.d(TAG, "Tenant updated successfully.")
             }
             .addOnFailureListener { e ->
-                Log.w(TAG, "Error excluding tenant.", e)
+                Log.w(TAG, "Error updating tenant.", e)
             }
     }
+
 
 }
 

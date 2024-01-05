@@ -15,6 +15,9 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".adapter.AddTenantAdapter"
+            android:exported="false" />
+        <activity
             android:name=".screen.AddTenantActivity"
             android:exported="false" />
         <activity

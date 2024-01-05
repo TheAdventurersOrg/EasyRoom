@@ -35,6 +35,7 @@ class RoomAdapter(private val rooms: List<Room>, private val dataSource: DataSou
         tvRoomName.setOnClickListener {
             val intent = Intent(context, RoomActivity::class.java)
             intent.putExtra("ROOM_NAME", room.name)
+            intent.putExtra("ROOM_ID", room.id)
             context.startActivity(intent)
         }
 

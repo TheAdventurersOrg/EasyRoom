@@ -43,6 +43,7 @@
     <string name="delete_property">Delete Property</string>
     <string name="update_property">Update Property</string>
     <string name="property_information">Property Information</string>
+    <string name="log_out">Log Out</string>
 
     <!-- Add properties screen -->
     <string name="new_property">New Property</string>
@@ -91,5 +92,10 @@
 
     <!-- Room tenant screen -->
     <string name="tenant_name">%1$s %2$s</string>
+    <string name="exclude_from_room">Exclude From Room</string>
+
+    <!-- Add tenant screen -->
+    <string name="tenants_without_room">Tenants Without Room</string>
+    <string name="add_tenant_in_room">Add Tenant In Room</string>
 
 </resources>

@@ -22,16 +22,18 @@ class RoomTenantsActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.rvRoomTenants)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+
         val roomId = intent.getStringExtra("ROOM_ID")
         if (roomId != null) {
+            Log.d("RoomTenantsActivity", "Room ID is not null: $roomId")
             recyclerView.adapter = RoomTenantAdapter(emptyList(), dataSourceActivity, this@RoomTenantsActivity, roomId)
-
             Log.d("RoomTenantsActivity", "Getting tenants for room ID: $roomId")
             dataSourceActivity.getTenantsByRoom(roomId, object : TenantCallback {
                 override fun onCallback(value: List<Tenant>) {
                     Log.d("RoomTenantsActivity", "Number of tenants returned: ${value.size}")
-                    val adapter = RoomTenantAdapter(value, dataSourceActivity, this@RoomTenantsActivity, roomId)
-                    recyclerView.adapter = adapter
+                        val adapter = RoomTenantAdapter(value, dataSourceActivity, this@RoomTenantsActivity, roomId)
+                        recyclerView.adapter = adapter
                 }
             })
         }
@@ -51,7 +53,11 @@ class RoomTenantsActivity : AppCompatActivity() {
         val ivAddTenant = findViewById<ImageView>(R.id.ivAddTenant)
         ivAddTenant.setOnClickListener {
             val intent = Intent(this, AddTenantActivity::class.java)
+            intent.putExtra("ROOM_ID", roomId)
+            Log.d("RoomTenantsActivity", "Passing roomId to AddTenantActivity: $roomId")
             startActivity(intent)
         }
     }
 }
+
+

@@ -20,11 +20,12 @@ data class Owner(
 }
 
 data class Tenant(
-    val id: String,
-    override val firstName: String,
-    override val lastName: String,
-    override val email: String,
-    override val phoneNumber: String
+    val id: String = "",
+    override val firstName: String = "",
+    override val lastName: String = "",
+    override val email: String = "",
+    override val phoneNumber: String = "",
+    var roomId: String = "none"
 ) : User {
     override val userType: String
         get() = "Tenant"

@@ -16,6 +16,8 @@ class RoomActivity : AppCompatActivity() {
         val roomName = intent.getStringExtra("ROOM_NAME")
         tvRoom.text = roomName
 
+        val roomId = intent.getStringExtra("ROOM_ID")
+
         val ivRoomPayments = findViewById<ImageView>(R.id.ivRoomPayments)
         ivRoomPayments.setOnClickListener {
             val intent = Intent(this, RoomPaymentsActivity::class.java)
@@ -37,6 +39,7 @@ class RoomActivity : AppCompatActivity() {
         val ivRoomTenants = findViewById<ImageView>(R.id.ivRoomTenants)
         ivRoomTenants.setOnClickListener {
             val intent = Intent(this, RoomTenantsActivity::class.java)
+            intent.putExtra("ROOM_ID", roomId)
             startActivity(intent)
         }
 
