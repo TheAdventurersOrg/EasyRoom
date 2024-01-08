@@ -15,6 +15,12 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".screen.OwnerProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screen.ChatWithOwnerActivity"
+            android:exported="false" />
+        <activity
             android:name=".screen.TenantInformationActivity"
             android:exported="false" />
         <activity
@@ -96,7 +102,7 @@
             android:name=".data.DataSourceActivity"
             android:exported="false" />
         <activity
-            android:name=".screen.OwnerActivity"
+            android:name=".screen.OwnerOfThePropertyActivity"
             android:exported="false" />
         <activity
             android:name=".screen.OtherTenantsActivity"

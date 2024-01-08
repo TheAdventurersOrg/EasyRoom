@@ -108,6 +108,8 @@
     <string name="tenant_email">Email</string>
     <string name="tenant_name_concatenation">%1$s %2$s</string>
 
-
+    <!-- Owner of the property screen -->
+    <string name="owner_property">Owner of the Property</string>
+    <string name="owner_profile">Owner Profile</string>
 
 </resources>

@@ -49,7 +49,7 @@ class HomeTenantActivity : AppCompatActivity() {
 
         val ivOwner = findViewById<ImageView>(R.id.ivOwner)
         ivOwner.setOnClickListener {
-            val intent = Intent(this, OwnerActivity::class.java)
+            val intent = Intent(this, OwnerOfThePropertyActivity::class.java)
             startActivity(intent)
         }
     }
