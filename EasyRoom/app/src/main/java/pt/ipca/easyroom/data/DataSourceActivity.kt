@@ -19,6 +19,10 @@ interface RoomCallback {
     fun onCallback(value: List<Room>)
 }
 
+interface RoomIdCallback {
+    fun onCallback(value: List<String>)
+}
+
 interface TenantCallback {
     fun onCallback(value: List<Tenant>)
 }
@@ -155,6 +159,24 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
+    fun getRoomIdsByProperty(propertyId: String, callback: RoomIdCallback) {
+        db.collection("rooms")
+            .whereEqualTo("propertyId", propertyId)
+            .get()
+            .addOnSuccessListener { documents ->
+                val roomIds = ArrayList<String>()
+                for (document in documents) {
+                    val room = document.toObject(Room::class.java)
+                    roomIds.add(room.id)
+                }
+                Log.d("DataSourceActivity", "Number of room IDs returned: ${roomIds.size}")
+                callback.onCallback(roomIds)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("DataSourceActivity", "Error getting documents: ", exception)
+            }
+    }
+
     fun updateRoom(roomId: String, updatedRoom: Room): Task<Void> {
         return db.collection("rooms")
             .document(roomId)
@@ -208,6 +230,24 @@ class DataSourceActivity(private val context: Context) {
         return db.collection("rooms").document().id
     }
 
+    fun getTenantById(tenantId: String, callback: (Tenant?) -> Unit) {
+        db.collection("tenants")
+            .document(tenantId)
+            .get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    val tenant = document.toObject(Tenant::class.java)
+                    callback(tenant)
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+    }
+
+
     fun getTenantsByRoom(roomId: String, callback: TenantCallback) {
         Log.d("DataSourceActivity", "Getting tenants for room ID: $roomId")
         db.collection("tenants")
@@ -228,10 +268,28 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
+    fun getTenantsByRoomIds(roomIds: List<String>, callback: TenantCallback) {
+        db.collection("tenants")
+            .whereIn("roomId", roomIds)
+            .get()
+            .addOnSuccessListener { documents ->
+                val tenants = ArrayList<Tenant>()
+                for (document in documents) {
+                    val tenant = document.toObject(Tenant::class.java)
+                    tenants.add(tenant)
+                }
+                Log.d("DataSourceActivity", "Number of tenants returned: ${tenants.size}")
+                callback.onCallback(tenants)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("DataSourceActivity", "Error getting documents: ", exception)
+            }
+    }
+
     fun excludeTenantFromRoom(tenantId: String) {
         db.collection("tenants")
             .document(tenantId)
-            .update("roomId", null)
+            .update("roomId", "none")
             .addOnSuccessListener {
                 Log.d(TAG, "Tenant excluded from room successfully.")
             }

@@ -25,7 +25,7 @@ data class Tenant(
     override val lastName: String = "",
     override val email: String = "",
     override val phoneNumber: String = "",
-    var roomId: String = "none"
+    var roomId: String = "none",
 ) : User {
     override val userType: String
         get() = "Tenant"

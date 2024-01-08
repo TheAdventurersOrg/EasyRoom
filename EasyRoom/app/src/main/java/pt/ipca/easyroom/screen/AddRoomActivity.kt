@@ -35,7 +35,7 @@ class AddRoomActivity : AppCompatActivity() {
                 Log.d("AddRoomActivity", "New Room's Property ID: ${newRoom.propertyId}")
                 dataSourceActivity.addRoom(newRoom)
                 Toast.makeText(this, "Room added successfully.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, PropertyActivity::class.java)
+                val intent = Intent(this, RoomsActivity::class.java)
                 intent.putExtra("PROPERTY_ID", propertyId)
                 startActivity(intent)
                 finish()

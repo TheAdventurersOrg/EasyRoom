@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.data.DataSourceActivity
 import pt.ipca.easyroom.model.Tenant
-import pt.ipca.easyroom.screen.RoomActivity
+import pt.ipca.easyroom.screen.AddTenantActivity
 
 class AddTenantAdapter(private val tenants: List<Tenant>, private val dataSource: DataSourceActivity, private val context: Context, private val roomId: String) : RecyclerView.Adapter<AddTenantAdapter.ViewHolder>() {
 
@@ -37,7 +37,7 @@ class AddTenantAdapter(private val tenants: List<Tenant>, private val dataSource
             } else {
                 tenant.roomId = roomId
                 dataSource.updateTenant(tenant.id, tenant)
-                val intent = Intent(context, RoomActivity::class.java)
+                val intent = Intent(context, AddTenantActivity::class.java)
                 intent.putExtra("ROOM_ID", roomId)
                 context.startActivity(intent)
             }

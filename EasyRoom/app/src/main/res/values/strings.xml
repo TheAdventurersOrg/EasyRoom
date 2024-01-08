@@ -91,11 +91,23 @@
     <string name="add_tenant">Add Tenant</string>
 
     <!-- Room tenant screen -->
-    <string name="tenant_name">%1$s %2$s</string>
     <string name="exclude_from_room">Exclude From Room</string>
 
     <!-- Add tenant screen -->
     <string name="tenants_without_room">Tenants Without Room</string>
     <string name="add_tenant_in_room">Add Tenant In Room</string>
+
+    <!-- Property tenants screen -->
+    <string name="property_tenants">Property Tenants</string>
+    <string name="exclude_from_property">Exclude From Property</string>
+
+    <!-- Tenant information screen -->
+    <string name="tenant_information">Tenant Information</string>
+    <string name="tenant_name">Name</string>
+    <string name="tenant_phone">Phone</string>
+    <string name="tenant_email">Email</string>
+    <string name="tenant_name_concatenation">%1$s %2$s</string>
+
+
 
 </resources>
