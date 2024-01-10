@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
+import pt.ipca.easyroom.model.Owner
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.Room
 import pt.ipca.easyroom.model.Tenant
@@ -327,7 +328,45 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-
+    fun getOwnerOfTenant(tenantId: String, callback: (Owner?) -> Unit) {
+        db.collection("tenants")
+            .document(tenantId)
+            .get()
+            .addOnSuccessListener { tenantDocument ->
+                val tenant = tenantDocument.toObject(Tenant::class.java)
+                db.collection("rooms")
+                    .document(tenant?.roomId ?: "")
+                    .get()
+                    .addOnSuccessListener { roomDocument ->
+                        val room = roomDocument.toObject(Room::class.java)
+                        db.collection("properties")
+                            .document(room?.propertyId ?: "")
+                            .get()
+                            .addOnSuccessListener { propertyDocument ->
+                                val property = propertyDocument.toObject(Property::class.java)
+                                db.collection("owners")
+                                    .document(property?.ownerId ?: "")
+                                    .get()
+                                    .addOnSuccessListener { ownerDocument ->
+                                        val owner = ownerDocument.toObject(Owner::class.java)
+                                        callback(owner)
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Log.d(TAG, "Error getting owner document: ", exception)
+                                    }
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.d(TAG, "Error getting property document: ", exception)
+                            }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d(TAG, "Error getting room document: ", exception)
+                    }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting tenant document: ", exception)
+            }
+    }
 }
 
 

@@ -51,6 +51,7 @@ class LoginActivity : AppCompatActivity() {
                                         tenantRef.get().addOnSuccessListener { tenantDocument ->
                                             if (tenantDocument.exists()) {
                                                 val intent = Intent(this, HomeTenantActivity::class.java)
+                                                intent.putExtra("TENANT_ID", user.uid)
                                                 startActivity(intent)
                                                 Toast.makeText(baseContext, "Authentication success.", Toast.LENGTH_SHORT).show()
                                             } else {

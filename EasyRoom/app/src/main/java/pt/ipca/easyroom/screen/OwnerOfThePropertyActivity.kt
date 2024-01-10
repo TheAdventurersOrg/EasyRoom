@@ -7,9 +7,13 @@ import android.widget.ImageView
 import pt.ipca.easyroom.R
 
 class OwnerOfThePropertyActivity : AppCompatActivity() {
+    private lateinit var tenantId: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_owner_of_the_property)
+
+        tenantId = intent.getStringExtra("TENANT_ID") ?: ""
 
         val ivLogOut = findViewById<ImageView>(R.id.ivLogOut)
         ivLogOut.setOnClickListener {
@@ -32,6 +36,7 @@ class OwnerOfThePropertyActivity : AppCompatActivity() {
         val ivOwnerProfile = findViewById<ImageView>(R.id.ivOwnerProfile)
         ivOwnerProfile.setOnClickListener {
             val intent = Intent(this, OwnerProfileActivity::class.java)
+            intent.putExtra("TENANT_ID", tenantId)
             startActivity(intent)
         }
     }

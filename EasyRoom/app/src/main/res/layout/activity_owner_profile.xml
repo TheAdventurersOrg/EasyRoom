@@ -4,6 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_blue"
     tools:context=".screen.OwnerProfileActivity">
+
+    <TextView
+        android:id="@+id/tvOwnerInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/owner_information"
+        android:textColor="@color/light_blue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998" />
+
+    <TextView
+        android:id="@+id/tvLabelOwnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvOwnerName"
+        android:text="@string/owner_name"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvOwnerName"
+        app:layout_constraintStart_toStartOf="@+id/tvOwnerName" />
+
+    <TextView
+        android:id="@+id/tvOwnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOwnerInformation" />
+
+    <TextView
+        android:id="@+id/tvLabelOwnerPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvOwnerPhone"
+        android:text="@string/owner_phone"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvOwnerName"
+        app:layout_constraintStart_toStartOf="@+id/tvOwnerPhone" />
+
+    <TextView
+        android:id="@+id/tvOwnerPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOwnerName" />
+
+    <TextView
+        android:id="@+id/tvLabelOwnerEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvOwnerEmail"
+        android:text="@string/owner_email"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvOwnerPhone"
+        app:layout_constraintStart_toStartOf="@+id/tvOwnerEmail" />
+
+    <TextView
+        android:id="@+id/tvOwnerEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvOwnerPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

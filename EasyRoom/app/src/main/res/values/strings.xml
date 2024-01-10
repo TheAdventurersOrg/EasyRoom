@@ -112,4 +112,11 @@
     <string name="owner_property">Owner of the Property</string>
     <string name="owner_profile">Owner Profile</string>
 
+    <!-- Owner profile screen -->
+    <string name="owner_information">Owner Information</string>
+    <string name="owner_name">Name</string>
+    <string name="owner_phone">Phone</string>
+    <string name="owner_email">Email</string>
+    <string name="owner_name_concatenation">%1$s %2$s</string>
+
 </resources>

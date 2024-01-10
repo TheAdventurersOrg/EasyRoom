@@ -9,11 +9,11 @@ interface User {
 }
 
 data class Owner(
-    val id: String,
-    override val firstName: String,
-    override val lastName: String,
-    override val email: String,
-    override val phoneNumber: String
+    val id: String = "",
+    override val firstName: String = "",
+    override val lastName: String = "",
+    override val email: String = "",
+    override val phoneNumber: String = "",
 ) : User {
     override val userType: String
         get() = "Owner"
