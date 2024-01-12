@@ -32,6 +32,7 @@ class OtherTenantAdapter(private val tenants: List<Tenant>, private val dataSour
         val ivOtherTenantInformation = holder.view.findViewById<ImageView>(R.id.ivOtherTenantInformation)
         ivOtherTenantInformation.setOnClickListener {
             val intent = Intent(context, OtherTenantInformationActivity::class.java)
+            intent.putExtra("TENANT_ID", tenant.id)
             context.startActivity(intent)
         }
 

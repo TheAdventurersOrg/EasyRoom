@@ -4,6 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_blue"
     tools:context=".screen.OtherTenantInformationActivity">
+
+    <TextView
+        android:id="@+id/tvTenantInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tenant_information"
+        android:textColor="@color/light_blue"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07999998" />
+
+    <TextView
+        android:id="@+id/tvLabelTenantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvTenantNameInfo"
+        android:text="@string/tenant_name"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvTenantNameInfo"
+        app:layout_constraintStart_toStartOf="@+id/tvTenantNameInfo" />
+
+    <TextView
+        android:id="@+id/tvTenantNameInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTenantInformation" />
+
+    <TextView
+        android:id="@+id/tvLabelTenantPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvTenantPhone"
+        android:text="@string/tenant_phone"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvTenantNameInfo"
+        app:layout_constraintStart_toStartOf="@+id/tvTenantPhone" />
+
+    <TextView
+        android:id="@+id/tvTenantPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTenantNameInfo" />
+
+    <TextView
+        android:id="@+id/tvLabelTenantEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:labelFor="@+id/tvTenantEmail"
+        android:text="@string/tenant_email"
+        android:textColor="@color/light_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/tvTenantPhone"
+        app:layout_constraintStart_toStartOf="@+id/tvTenantEmail" />
+
+    <TextView
+        android:id="@+id/tvTenantEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:width="300dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTenantPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
