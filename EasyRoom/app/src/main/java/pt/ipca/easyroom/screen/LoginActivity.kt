@@ -1,8 +1,10 @@
 package pt.ipca.easyroom.screen
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -38,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val user = auth.currentUser
                             if (user != null) {
+                                Log.d(TAG, "User UID: ${user.uid}")
                                 val db = FirebaseFirestore.getInstance()
                                 val ownerRef = db.collection("owners").document(user.uid)
                                 val tenantRef = db.collection("tenants").document(user.uid)

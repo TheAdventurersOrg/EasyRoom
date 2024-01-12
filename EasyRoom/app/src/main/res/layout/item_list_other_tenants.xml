@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/black"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvOtherTenantName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ivOtherTenantInformation"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/other_tenant_information"
+        android:src="@drawable/ic_information" />
+
+    <ImageView
+        android:id="@+id/ivOtherTenantChat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="@string/other_tenant_chat"
+        android:src="@drawable/ic_chat" />
+
+</LinearLayout>

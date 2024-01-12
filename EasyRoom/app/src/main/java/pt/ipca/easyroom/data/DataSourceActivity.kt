@@ -28,6 +28,10 @@ interface TenantCallback {
     fun onCallback(value: List<Tenant>)
 }
 
+interface OtherTenantCallback {
+    fun onCallback(value: List<Tenant>?, propertyId: String?)
+}
+
 class DataSourceActivity(private val context: Context) {
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -357,6 +361,74 @@ class DataSourceActivity(private val context: Context) {
                             }
                             .addOnFailureListener { exception ->
                                 Log.d(TAG, "Error getting property document: ", exception)
+                            }
+                    }
+                    .addOnFailureListener { exception ->
+                        Log.d(TAG, "Error getting room document: ", exception)
+                    }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting tenant document: ", exception)
+            }
+    }
+
+    fun getOtherTenants(tenantId: String, callback: OtherTenantCallback) {
+        Log.d(TAG, "Tenant ID: $tenantId")
+
+        if (tenantId.isBlank()) {
+            Log.d(TAG, "Error: tenantId is blank")
+            return
+        }
+        db.collection("tenants")
+            .document(tenantId)
+            .get()
+            .addOnSuccessListener tenantSuccess@ { tenantDocument ->
+                val tenant = tenantDocument.toObject(Tenant::class.java)
+                val roomId = tenant?.roomId
+
+                Log.d(TAG, "Room ID: $roomId")
+
+                if (roomId.isNullOrBlank()) {
+                    Log.d(TAG, "Error: roomId is null or blank")
+                    return@tenantSuccess
+                }
+
+                db.collection("rooms")
+                    .document(roomId)
+                    .get()
+                    .addOnSuccessListener roomSuccess@ { roomDocument ->
+                        val room = roomDocument.toObject(Room::class.java)
+                        val propertyId = room?.propertyId
+
+                        Log.d(TAG, "Property ID: $propertyId")
+
+                        if (propertyId.isNullOrBlank()) {
+                            Log.d(TAG, "Error: propertyId is null or blank")
+                            return@roomSuccess
+                        }
+
+                        db.collection("rooms")
+                            .whereEqualTo("propertyId", propertyId)
+                            .get()
+                            .addOnSuccessListener { roomDocuments ->
+                                val roomIds = roomDocuments.documents.mapNotNull { it.id }
+                                Log.d(TAG, "Room IDs: $roomIds")
+
+                                db.collection("tenants")
+                                    .whereIn("roomId", roomIds)
+                                    .get()
+                                    .addOnSuccessListener { tenantDocuments ->
+                                        val tenants = tenantDocuments.documents.mapNotNull { it.toObject(Tenant::class.java) }
+                                            .filter { it.id != tenantId }
+                                        Log.d(TAG, "Number of other tenants: ${tenants.size}")
+                                        callback.onCallback(tenants, propertyId)
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Log.d(TAG, "Error getting tenant documents: ", exception)
+                                    }
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.d(TAG, "Error getting room documents: ", exception)
                             }
                     }
                     .addOnFailureListener { exception ->

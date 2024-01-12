@@ -1,8 +1,10 @@
 package pt.ipca.easyroom.screen
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import pt.ipca.easyroom.R
 
@@ -47,8 +49,13 @@ class HomeTenantActivity : AppCompatActivity() {
 
         val ivOtherTenants = findViewById<ImageView>(R.id.ivOtherTenants)
         ivOtherTenants.setOnClickListener {
-            val intent = Intent(this, OtherTenantsActivity::class.java)
-            startActivity(intent)
+            if (tenantId.isBlank()) {
+                Log.d(TAG, "Error: tenantId is null or blank")
+            } else {
+                val intent = Intent(this, OtherTenantsActivity::class.java)
+                intent.putExtra("TENANT_ID", tenantId)
+                startActivity(intent)
+            }
         }
 
         val ivOwner = findViewById<ImageView>(R.id.ivOwner)

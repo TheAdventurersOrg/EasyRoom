@@ -24,6 +24,7 @@ class OwnerOfThePropertyActivity : AppCompatActivity() {
         val ivHomeTenant = findViewById<ImageView>(R.id.ivHomeTenant)
         ivHomeTenant.setOnClickListener {
             val intent = Intent(this, HomeTenantActivity::class.java)
+            intent.putExtra("TENANT_ID", tenantId)
             startActivity(intent)
         }
 

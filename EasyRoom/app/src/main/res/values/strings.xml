@@ -96,6 +96,7 @@
     <!-- Add tenant screen -->
     <string name="tenants_without_room">Tenants Without Room</string>
     <string name="add_tenant_in_room">Add Tenant In Room</string>
+    <string name="add_tenant_name_concatenation">%1$s %2$s</string>
 
     <!-- Property tenants screen -->
     <string name="property_tenants">Property Tenants</string>
@@ -118,5 +119,11 @@
     <string name="owner_phone">Phone</string>
     <string name="owner_email">Email</string>
     <string name="owner_name_concatenation">%1$s %2$s</string>
+
+    <!-- Other tenants screen -->
+    <string name="other_tenant_information">Other Tenant Information</string>
+    <string name="other_tenant_chat">Other Tenant Chat</string>
+    <string name="group_chat">Group Chat</string>
+    <string name="other_tenant_concatenation">%1$s %2$s</string>
 
 </resources>

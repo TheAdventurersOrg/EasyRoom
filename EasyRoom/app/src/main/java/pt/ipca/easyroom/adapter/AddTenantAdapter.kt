@@ -27,7 +27,7 @@ class AddTenantAdapter(private val tenants: List<Tenant>, private val dataSource
         val tenant = tenants[position]
 
         val tvTenantName = holder.view.findViewById<TextView>(R.id.tvTenantName)
-        val tenantName = context.getString(R.string.tenant_name, tenant.firstName, tenant.lastName)
+        val tenantName = context.getString(R.string.add_tenant_name_concatenation, tenant.firstName, tenant.lastName)
         tvTenantName.text = tenantName
 
         val ivAddTenantInRoom = holder.view.findViewById<ImageView>(R.id.ivAddTenantInRoom)

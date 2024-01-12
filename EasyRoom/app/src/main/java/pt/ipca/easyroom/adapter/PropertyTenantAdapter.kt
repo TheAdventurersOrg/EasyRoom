@@ -16,7 +16,7 @@ import pt.ipca.easyroom.model.Tenant
 import pt.ipca.easyroom.screen.PropertyTenantsActivity
 import pt.ipca.easyroom.screen.TenantInformationActivity
 
-class PropertyTenantAdapter(private val tenants: List<Tenant>, private val dataSource: DataSourceActivity, private val context: Context, private val roomId: String) : RecyclerView.Adapter<PropertyTenantAdapter.ViewHolder>() {
+class PropertyTenantAdapter(private val tenants: List<Tenant>, private val dataSource: DataSourceActivity, private val context: Context, private val propertyId: String) : RecyclerView.Adapter<PropertyTenantAdapter.ViewHolder>() {
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
@@ -35,6 +35,7 @@ class PropertyTenantAdapter(private val tenants: List<Tenant>, private val dataS
         tvPropertyTenantInformation.setOnClickListener {
             val intent = Intent(context, TenantInformationActivity::class.java)
             intent.putExtra("TENANT_ID", tenant.id)
+            intent.putExtra("PROPERTY_ID", propertyId)
             context.startActivity(intent)
         }
 
@@ -47,7 +48,7 @@ class PropertyTenantAdapter(private val tenants: List<Tenant>, private val dataS
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     dataSource.excludeTenantFromRoom(tenant.id)
                     val intent = Intent(context, PropertyTenantsActivity::class.java)
-                    intent.putExtra("ROOM_ID", roomId)
+                    intent.putExtra("PROPERTY_ID", propertyId)
                     context.startActivity(intent)
                     Toast.makeText(context, "Tenant excluded successfully.", Toast.LENGTH_SHORT).show()
                 }
