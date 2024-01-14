@@ -33,6 +33,7 @@ class RoomActivity : AppCompatActivity() {
         val ivRoomChat = findViewById<ImageView>(R.id.ivRoomChat)
         ivRoomChat.setOnClickListener {
             val intent = Intent(this, RoomChatActivity::class.java)
+            intent.putExtra("ROOM_ID", roomId)
             startActivity(intent)
         }
 

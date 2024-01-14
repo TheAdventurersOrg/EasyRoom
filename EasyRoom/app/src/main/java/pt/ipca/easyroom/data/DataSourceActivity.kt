@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
+import pt.ipca.easyroom.model.Message
 import pt.ipca.easyroom.model.Owner
 import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.Room
@@ -438,6 +439,60 @@ class DataSourceActivity(private val context: Context) {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting tenant document: ", exception)
             }
+    }
+
+    fun sendMessage(roomId: String, message: Message) {
+        Log.d(TAG, "Attempting to send message: $message to room: $roomId")
+        db.collection("rooms")
+            .document(roomId)
+            .collection("messages")
+            .add(message)
+            .addOnSuccessListener {
+                Log.d(TAG, "Message sent successfully.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error sending message.", e)
+            }
+    }
+
+    fun getMessages(roomId: String, callback: (List<Message>) -> Unit) {
+        Log.d(TAG, "Attempting to get messages from room: $roomId")
+        db.collection("rooms")
+            .document(roomId)
+            .collection("messages")
+            .orderBy("timestamp")
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.w(TAG, "Error getting messages.", e)
+                    return@addSnapshotListener
+                }
+
+                val messages = snapshot?.toObjects(Message::class.java) ?: emptyList()
+                Log.d(TAG, "Received ${messages.size} messages from room: $roomId")
+                callback(messages)
+            }
+    }
+
+    fun getUserName(userId: String, callback: (String) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val ownerRef = db.collection("owners").document(userId)
+        val tenantRef = db.collection("tenants").document(userId)
+
+        ownerRef.get().addOnSuccessListener { ownerDocument ->
+            if (ownerDocument.exists()) {
+                val owner = ownerDocument.toObject(Owner::class.java)
+                callback(owner?.firstName + " " + owner?.lastName)
+            } else {
+                tenantRef.get().addOnSuccessListener { tenantDocument ->
+                    if (tenantDocument.exists()) {
+                        val tenant = tenantDocument.toObject(Tenant::class.java)
+                        callback(tenant?.firstName + " " + tenant?.lastName)
+                    } else {
+                        callback("Unknown user")
+                    }
+                }
+            }
+        }
     }
 }
 

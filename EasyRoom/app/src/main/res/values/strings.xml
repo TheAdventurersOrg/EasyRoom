@@ -126,4 +126,10 @@
     <string name="group_chat">Group Chat</string>
     <string name="other_tenant_concatenation">%1$s %2$s</string>
 
+    <!-- Room chat screen -->
+    <string name="type_a_message">Type a message</string>
+    <string name="autofill_message">Message</string>
+    <string name="send">Send</string>
+    <string name="message_concatenation">%1$s: %2$s</string>
+
 </resources>
