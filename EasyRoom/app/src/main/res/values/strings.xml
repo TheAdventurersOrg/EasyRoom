@@ -132,5 +132,6 @@
     <string name="autofill_message">Message</string>
     <string name="send">Send</string>
     <string name="message_concatenation">%1$s: %2$s</string>
+    <string name="room_chat">Room Chat</string>
 
 </resources>

@@ -97,14 +97,14 @@
         app:layout_constraintEnd_toEndOf="@id/ivNotificationsTenant" />
 
     <ImageView
-        android:id="@+id/ivTask"
+        android:id="@+id/ivRoomChatWithOwner"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="70dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_task"
-        android:contentDescription="@string/task"
+        android:background="@drawable/ic_chat"
+        android:contentDescription="@string/room"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/ivOtherTenants"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,12 +114,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/light_blue"
-        android:text="@string/task"
+        android:text="@string/room_chat"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivTask"
-        app:layout_constraintStart_toStartOf="@id/ivTask"
-        app:layout_constraintEnd_toEndOf="@id/ivTask" />
+        app:layout_constraintTop_toBottomOf="@id/ivRoomChatWithOwner"
+        app:layout_constraintStart_toStartOf="@id/ivRoomChatWithOwner"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomChatWithOwner" />
 
     <ImageView
         android:id="@+id/ivOtherTenants"
@@ -132,7 +132,7 @@
         android:contentDescription="@string/other_tenants"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ivTask"
+        app:layout_constraintStart_toEndOf="@id/ivRoomChatWithOwner"
         app:layout_constraintTop_toBottomOf="@id/ivNotificationsTenant" />
 
     <TextView
@@ -147,27 +147,27 @@
         app:layout_constraintEnd_toEndOf="@id/ivOtherTenants" />
 
     <ImageView
-        android:id="@+id/ivOwner"
+        android:id="@+id/ivOwnerProfile"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="70dp"
-        android:background="@drawable/ic_owner"
-        android:contentDescription="@string/owner"
+        android:background="@drawable/ic_person"
+        android:contentDescription="@string/owner_profile"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@id/ivTask"
-        app:layout_constraintStart_toStartOf="@id/ivTask"
+        app:layout_constraintEnd_toEndOf="@id/ivRoomChatWithOwner"
+        app:layout_constraintStart_toStartOf="@id/ivRoomChatWithOwner"
         app:layout_constraintTop_toBottomOf="@id/ivOtherTenants" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/light_blue"
-        android:text="@string/owner"
+        android:text="@string/owner_profile"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivOwner"
-        app:layout_constraintStart_toStartOf="@id/ivOwner"
-        app:layout_constraintEnd_toEndOf="@id/ivOwner" />
+        app:layout_constraintTop_toBottomOf="@id/ivOwnerProfile"
+        app:layout_constraintStart_toStartOf="@id/ivOwnerProfile"
+        app:layout_constraintEnd_toEndOf="@id/ivOwnerProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

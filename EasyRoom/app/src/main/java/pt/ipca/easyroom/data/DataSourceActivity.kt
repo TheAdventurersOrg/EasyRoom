@@ -474,7 +474,6 @@ class DataSourceActivity(private val context: Context) {
     }
 
     fun getUserName(userId: String, callback: (String) -> Unit) {
-        //val db = FirebaseFirestore.getInstance()
         val ownerRef = db.collection("owners").document(userId)
         val tenantRef = db.collection("tenants").document(userId)
 
