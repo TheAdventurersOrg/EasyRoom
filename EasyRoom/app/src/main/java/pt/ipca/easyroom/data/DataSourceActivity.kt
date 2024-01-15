@@ -441,7 +441,7 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-    fun sendMessage(roomId: String, message: Message) {
+    fun sendRoomMessage(roomId: String, message: Message) {
         Log.d(TAG, "Attempting to send message: $message to room: $roomId")
         db.collection("rooms")
             .document(roomId)
@@ -455,7 +455,7 @@ class DataSourceActivity(private val context: Context) {
             }
     }
 
-    fun getMessages(roomId: String, callback: (List<Message>) -> Unit) {
+    fun getRoomMessages(roomId: String, callback: (List<Message>) -> Unit) {
         Log.d(TAG, "Attempting to get messages from room: $roomId")
         db.collection("rooms")
             .document(roomId)
@@ -474,7 +474,7 @@ class DataSourceActivity(private val context: Context) {
     }
 
     fun getUserName(userId: String, callback: (String) -> Unit) {
-        val db = FirebaseFirestore.getInstance()
+        //val db = FirebaseFirestore.getInstance()
         val ownerRef = db.collection("owners").document(userId)
         val tenantRef = db.collection("tenants").document(userId)
 
@@ -493,6 +493,28 @@ class DataSourceActivity(private val context: Context) {
                 }
             }
         }
+    }
+
+    fun sendPropertyMessage(propertyId: String, message: Message) {
+        db.collection("properties")
+            .document(propertyId)
+            .collection("messages")
+            .add(message)
+    }
+
+    fun getPropertyMessages(propertyId: String, callback: (List<Message>) -> Unit) {
+        db.collection("properties")
+            .document(propertyId)
+            .collection("messages")
+            .orderBy("timestamp")
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    return@addSnapshotListener
+                }
+
+                val messages = snapshot?.toObjects(Message::class.java) ?: emptyList()
+                callback(messages)
+            }
     }
 }
 

@@ -46,6 +46,14 @@ class PropertyActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val ivPropertyChat = findViewById<ImageView>(R.id.ivPropertyChat)
+        ivPropertyChat.setOnClickListener {
+            val intent = Intent(this, PropertyChatActivity::class.java)
+            intent.putExtra("PROPERTY_ID", propertyId)
+            intent.putExtra("PROPERTY_NAME", propertyName)
+            startActivity(intent)
+        }
+
         val ivLogOut = findViewById<ImageView>(R.id.ivLogOut)
         ivLogOut.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)

@@ -34,6 +34,7 @@ class RoomActivity : AppCompatActivity() {
         ivRoomChat.setOnClickListener {
             val intent = Intent(this, RoomChatActivity::class.java)
             intent.putExtra("ROOM_ID", roomId)
+            intent.putExtra("ROOM_NAME", roomName)
             startActivity(intent)
         }
 

@@ -85,6 +85,7 @@
 
     <!-- Room screen -->
     <string name="chat">Chat</string>
+    <string name="room"></string>
 
     <!-- Room tenants screen -->
     <string name="room_tenants">Room Tenants</string>

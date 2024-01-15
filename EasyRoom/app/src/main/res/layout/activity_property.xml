@@ -110,15 +110,16 @@
         app:layout_constraintTop_toBottomOf="@id/ivPropertyPayments" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/light_blue"
         android:text="@string/rooms"
+        android:textColor="@color/light_blue"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/ivPropertyRooms"
+        app:layout_constraintEnd_toEndOf="@id/ivPropertyRooms"
         app:layout_constraintStart_toStartOf="@id/ivPropertyRooms"
-        app:layout_constraintEnd_toEndOf="@id/ivPropertyRooms" />
+        app:layout_constraintTop_toBottomOf="@id/ivPropertyRooms" />
 
     <ImageView
         android:id="@+id/ivPropertyTenants"
@@ -142,5 +143,28 @@
         app:layout_constraintTop_toBottomOf="@id/ivPropertyTenants"
         app:layout_constraintStart_toStartOf="@id/ivPropertyTenants"
         app:layout_constraintEnd_toEndOf="@id/ivPropertyTenants" />
+
+    <ImageView
+        android:id="@+id/ivPropertyChat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/ic_chat"
+        android:contentDescription="@string/chat"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/ivPropertyRooms"
+        app:layout_constraintStart_toStartOf="@+id/ivPropertyRooms"
+        app:layout_constraintTop_toBottomOf="@+id/ivPropertyRooms" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_blue"
+        android:text="@string/chat"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ivPropertyChat"
+        app:layout_constraintStart_toStartOf="@id/ivPropertyChat"
+        app:layout_constraintEnd_toEndOf="@id/ivPropertyChat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
