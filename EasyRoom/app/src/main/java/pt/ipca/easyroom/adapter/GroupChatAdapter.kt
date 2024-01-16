@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.model.Message
 
-class PropertyChatAdapter(val messages: MutableList<Message>) : RecyclerView.Adapter<PropertyChatAdapter.MessageViewHolder>() {
+class GroupChatAdapter(val messages: MutableList<Message>) : RecyclerView.Adapter<GroupChatAdapter.MessageViewHolder>() {
 
     class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvMessage: TextView = itemView.findViewById(R.id.tvMessage)

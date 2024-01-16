@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import pt.ipca.easyroom.R
+import pt.ipca.easyroom.model.Property
 import pt.ipca.easyroom.model.Room
 import pt.ipca.easyroom.model.Tenant
 
@@ -81,9 +82,23 @@ class HomeTenantActivity : AppCompatActivity() {
             val ivOtherTenants = findViewById<ImageView>(R.id.ivOtherTenants)
             ivOtherTenants.setOnClickListener {
                 if (roomId != "none") {
-                    val intent = Intent(this, OtherTenantsActivity::class.java)
-                    intent.putExtra("TENANT_ID", tenantId)
-                    startActivity(intent)
+                    db.collection("rooms").document(roomId?:"").get().addOnSuccessListener { roomDocument ->
+                        val room = roomDocument.toObject(Room::class.java)
+                        val propertyId = room?.propertyId
+                        if (propertyId != null) {
+                            db.collection("properties").document(propertyId).get().addOnSuccessListener { document ->
+                                val property = document.toObject(Property::class.java)
+                                val propertyName = property?.name
+                                val intent = Intent(this, OtherTenantsActivity::class.java)
+                                intent.putExtra("TENANT_ID", tenantId)
+                                intent.putExtra("PROPERTY_ID", propertyId)
+                                intent.putExtra("PROPERTY_NAME", propertyName)
+                                startActivity(intent)
+                            }
+                        } else {
+                            Toast.makeText(this, "Room is not yet linked to a property.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
                     Toast.makeText(this, "Tenant is not yet linked to a room.", Toast.LENGTH_SHORT).show()
                 }

@@ -20,6 +20,8 @@ class OtherTenantsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_other_tenants)
 
         val dataSource = DataSourceActivity(this)
+        val propertyId = intent.getStringExtra("PROPERTY_ID") ?: ""
+        val propertyName = intent.getStringExtra("PROPERTY_NAME") ?: ""
 
         val tenantId = intent.getStringExtra("TENANT_ID") ?: ""
         if (tenantId.isBlank()) {
@@ -56,6 +58,8 @@ class OtherTenantsActivity : AppCompatActivity() {
         val ivGroupChat = findViewById<ImageView>(R.id.ivGroupChat)
         ivGroupChat.setOnClickListener {
             val intent = Intent(this, GroupChatActivity::class.java)
+            intent.putExtra("PROPERTY_ID", propertyId)
+            intent.putExtra("PROPERTY_NAME", propertyName)
             startActivity(intent)
         }
     }

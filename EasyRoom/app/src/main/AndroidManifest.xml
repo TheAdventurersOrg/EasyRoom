@@ -15,6 +15,12 @@
         android:theme="@style/Theme.EasyRoom"
         tools:targetApi="31">
         <activity
+            android:name=".adapter.GroupChatAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.OtherTenantChatAdapter"
+            android:exported="false" />
+        <activity
             android:name=".adapter.RoomChatWithOwnerAdapter"
             android:exported="false" />
         <activity

@@ -21,11 +21,4 @@
         android:contentDescription="@string/other_tenant_information"
         android:src="@drawable/ic_information" />
 
-    <ImageView
-        android:id="@+id/ivOtherTenantChat"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:contentDescription="@string/other_tenant_chat"
-        android:src="@drawable/ic_chat" />
-
 </LinearLayout>

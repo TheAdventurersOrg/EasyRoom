@@ -50,5 +50,12 @@ data class Message(
     val timestamp: Long = System.currentTimeMillis()
 )
 
+data class Conversation(
+    val tenant1Id: String = "",
+    val tenant2Id: String = "",
+    val messages: MutableList<Message> = mutableListOf()
+)
+
+
 
 

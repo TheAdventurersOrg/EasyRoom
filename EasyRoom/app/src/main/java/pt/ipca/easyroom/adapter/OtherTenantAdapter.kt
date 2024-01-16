@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import pt.ipca.easyroom.R
 import pt.ipca.easyroom.data.DataSourceActivity
 import pt.ipca.easyroom.model.Tenant
-import pt.ipca.easyroom.screen.OtherTenantChatActivity
 import pt.ipca.easyroom.screen.OtherTenantInformationActivity
 
 class OtherTenantAdapter(private val tenants: List<Tenant>, private val dataSource: DataSourceActivity, private val context: Context) : RecyclerView.Adapter<OtherTenantAdapter.ViewHolder>() {
@@ -33,12 +32,6 @@ class OtherTenantAdapter(private val tenants: List<Tenant>, private val dataSour
         ivOtherTenantInformation.setOnClickListener {
             val intent = Intent(context, OtherTenantInformationActivity::class.java)
             intent.putExtra("TENANT_ID", tenant.id)
-            context.startActivity(intent)
-        }
-
-        val ivOtherTenantChat = holder.view.findViewById<ImageView>(R.id.ivOtherTenantChat)
-        ivOtherTenantChat.setOnClickListener {
-            val intent = Intent(context, OtherTenantChatActivity::class.java)
             context.startActivity(intent)
         }
     }
